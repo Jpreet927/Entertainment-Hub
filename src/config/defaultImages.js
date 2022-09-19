@@ -3,6 +3,8 @@ export const img300 = "https://image.tmdb.org/t/p/w300";
 export const img500 = "https://image.tmdb.org/t/p/w500";
 export const bg1200 = "https://image.tmdb.org/t/p/w1200";
 export const bgOriginal = "https://image.tmdb.org/t/p/original";
+export const avatar45 = "https://image.tmdb.org/t/p/w45";
+export const avatar185 = "https://image.tmdb.org/t/p/w185";
 
 export const posterUnavailable =
     "https://www.cinemahalls.com/wp-content/uploads/2019/10/Picture-Not-Available-1.jpg";

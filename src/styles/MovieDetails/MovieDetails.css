@@ -38,4 +38,161 @@
   height: 60%;
   bottom: 0;
 }
+
+.moviedetails__container .moviedetails__details {
+  margin-top: -300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 6em;
+  padding: 0em 12em;
+  position: relative;
+  z-index: 20;
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__left {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2em;
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__left img {
+  width: 100%;
+  min-width: 250px;
+  border-radius: 25px;
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__left .moviedetails__rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5em;
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__left .moviedetails__rating p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__center,
+.moviedetails__container .moviedetails__details .moviedetails__right {
+  margin-top: 4em;
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__center {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3em;
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__center p {
+  line-height: 1.6em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__center hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__center .moviedetails__description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__center .moviedetails__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__center .moviedetails__info .moviedetails__genres {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__right {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+.moviedetails__container .moviedetails__details .moviedetails__right .moviedetails__cast-crew {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.75em;
+}
+
+.moviedetails__container .moviedetails__trailer {
+  padding: 0em 12em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+  margin-top: 6em;
+}
+
+.moviedetails__container .moviedetails__trailer .trailer__container {
+  position: relative;
+  padding-bottom: 56.25%;
+  width: 100%;
+  height: 0;
+}
+
+.moviedetails__container .moviedetails__trailer .trailer__container iframe {
+  position: absolute;
+  border: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
 /*# sourceMappingURL=MovieDetails.css.map */

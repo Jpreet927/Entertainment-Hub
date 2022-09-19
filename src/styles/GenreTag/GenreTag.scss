@@ -1,0 +1,19 @@
+@import "../../utilities/variables";
+
+.genre__container {
+    padding: 0.4em 1.4em;
+    border-radius: 10em;
+    border: 1px solid $subtext;
+    transition: border 0.2s ease;
+
+    &:hover {
+        border: 1px solid white;
+        color: white;
+        cursor: pointer;
+    }
+
+    p {
+        font-size: 0.8rem;
+        color: $subtext;
+    }
+}

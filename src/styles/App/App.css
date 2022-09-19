@@ -7,6 +7,18 @@
   color: white;
 }
 
+* h1 {
+  font-size: 3rem;
+}
+
+* p {
+  font-size: 1rem;
+}
+
+* h3 {
+  font-size: 1.6rem;
+}
+
 .App .app__navbar {
   position: fixed;
   top: 0;

@@ -6,6 +6,18 @@
     box-sizing: border-box;
     font-family: $sansSerifMain;
     color: $text;
+
+    h1 {
+        font-size: $fontSizeH1;
+    }
+
+    p {
+        font-size: $fontSizeP;
+    }
+
+    h3 {
+        font-size: $fontSizeH3;
+    }
 }
 
 .App {

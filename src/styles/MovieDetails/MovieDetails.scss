@@ -39,4 +39,116 @@
             bottom: 0;
         }
     }
+
+    .moviedetails__details {
+        // transform: translateY(-50%);
+        margin-top: -300px;
+        display: flex;
+        justify-content: center;
+        gap: 6em;
+        padding: 0em 12em;
+        position: relative;
+        z-index: 20;
+
+        .moviedetails__left {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+
+            img {
+                width: 100%;
+                min-width: 250px;
+                border-radius: 25px;
+            }
+
+            .moviedetails__rating {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5em;
+
+                p {
+                    color: $subtext;
+                }
+            }
+        }
+
+        .moviedetails__center,
+        .moviedetails__right {
+            margin-top: 4em;
+        }
+
+        .moviedetails__center {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 3em;
+
+            p {
+                line-height: 1.6em;
+                color: $subtext;
+            }
+
+            hr {
+                border: none;
+                border-top: 1px solid $subtext;
+            }
+
+            .moviedetails__description {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .moviedetails__info {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+
+                .moviedetails__genres {
+                    display: flex;
+                    gap: 1em;
+                }
+            }
+        }
+
+        .moviedetails__right {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            .moviedetails__cast-crew {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75em;
+            }
+        }
+    }
+
+    .moviedetails__trailer {
+        padding: 0em 12em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin-top: 6em;
+
+        .trailer__container {
+            position: relative;
+            padding-bottom: 56.25%;
+            width: 100%;
+            height: 0;
+
+            iframe {
+                position: absolute;
+                border: none;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 25px;
+            }
+        }
+    }
 }
