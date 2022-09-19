@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.App .app__navbar {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+/*# sourceMappingURL=App.css.map */

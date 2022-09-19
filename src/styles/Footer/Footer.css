@@ -1,0 +1,27 @@
+.footer__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 4em 12em;
+  background-color: #0c0d0f;
+}
+
+.footer__container p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer__container .footer__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2em;
+}
+
+.footer__container .footer__right .footer__icon {
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+}
+/*# sourceMappingURL=Footer.css.map */

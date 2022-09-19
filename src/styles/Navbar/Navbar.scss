@@ -1,0 +1,24 @@
+@import "../../utilities/variables";
+
+.navbar__container {
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+
+    ul {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        li {
+            list-style: none;
+            color: $subtext;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: $text;
+            }
+        }
+    }
+}

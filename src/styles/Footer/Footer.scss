@@ -1,0 +1,22 @@
+@import "../../utilities/variables";
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 4em 12em;
+    background-color: $background;
+
+    p {
+        color: $subtext;
+    }
+
+    .footer__right {
+        display: flex;
+        gap: 2em;
+
+        .footer__icon {
+            color: $subtext;
+            cursor: pointer;
+        }
+    }
+}
