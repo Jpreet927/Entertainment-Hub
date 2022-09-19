@@ -1,40 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useLocation } from "react-router-dom";
-import YouTube from "react-youtube";
-import {
-    img300,
-    img500,
-    posterUnavailable,
-    bgOriginal,
-} from "../config/defaultImages";
+import { img500, posterUnavailable, bgOriginal } from "../config/defaultImages";
 import Profile from "../components/Profile";
 import GenreTag from "../components/GenreTag";
 import "../styles/MovieDetails/MovieDetails.css";
 
 function MovieDetailsPage(props) {
-    const { movie } = props;
-    const location = useLocation();
     const params = useParams();
     const [movieDetails, setMovieDetails] = useState({});
     const [movieCast, setMovieCast] = useState([]);
     const [movieCrew, setMovieCrew] = useState([]);
     const [movieTrailer, setMovieTrailer] = useState();
 
-    const opts = {
-        height: "360",
-        width: "640",
-        playerVars: {
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 0,
-        },
-    };
-
     const getMovieDetails = async () => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
         );
-        console.log(response.data);
+
         setMovieDetails(response.data);
     };
 
@@ -55,11 +38,6 @@ function MovieDetailsPage(props) {
             response.data.results.filter((video) => video.type === "Trailer")[0]
                 ?.key
         );
-    };
-
-    const onPlayerReady = (event) => {
-        // access to player in all event handlers via event.target
-        event.target.pauseVideo();
     };
 
     useEffect(() => {
@@ -136,12 +114,6 @@ function MovieDetailsPage(props) {
             <div className="moviedetails__trailer">
                 <h1>Trailer</h1>
                 <div className="trailer__container">
-                    {/* <YouTube
-                        videoId={movieTrailer}
-                        opts={opts}
-                        onReady={onPlayerReady}
-                        className="trailer__player"
-                    /> */}
                     <iframe
                         src={`https://www.youtube.com/embed/${movieTrailer}`}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"

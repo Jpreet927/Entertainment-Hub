@@ -11,7 +11,7 @@ function MovieList(props) {
         const response = await axios.get(
             `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_TMDB_API}`
         );
-        console.log(response.data.results);
+
         setTrendingMovies(response.data.results);
     };
 
