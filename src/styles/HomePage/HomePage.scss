@@ -54,6 +54,19 @@
             }
         }
 
+        .home__header-trailers {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            padding: 4em;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2em;
+            width: 33%;
+        }
+
         img {
             width: 100%;
             height: 100%;

@@ -9,10 +9,12 @@ import {
 } from "../config/defaultImages";
 import "../styles/HomePage/HomePage.css";
 import GenreTag from "../components/GenreTag";
+import Trailer from "../components/Trailer";
 
 function HomePage() {
     const [headerMovie, setHeaderMovie] = useState({});
     const [headerMovieData, setHeaderMovieData] = useState({});
+    const [headerMovieTrailers, setHeaderMovieTrailers] = useState([]);
     const [popularMovies, setPopularMovies] = useState([]);
     const [trendingMovies, setTrendingMovies] = useState([]);
 
@@ -22,9 +24,14 @@ function HomePage() {
         );
 
         setPopularMovies(response.data.results);
+
         const movieData = await getHeaderMovieData(response.data.results[0].id);
-        console.log(movieData);
+        const movieTrailers = await getHeaderMovieTrailers(
+            response.data.results[0].id
+        );
+
         setHeaderMovie(movieData);
+        setHeaderMovieTrailers(movieTrailers);
     };
 
     const getHeaderMovieData = async (movieID) => {
@@ -35,11 +42,22 @@ function HomePage() {
         return response.data;
     };
 
+    const getHeaderMovieTrailers = async (movieID) => {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
+        );
+
+        return response.data.results
+            .filter((video) => video.site === "YouTube")
+            .map((video) => video.key)
+            .slice(0, 2);
+    };
+
     const getTrendingMovies = async () => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_TMDB_API}`
         );
-        console.log(response.data.results);
+        // console.log(response.data.results);
         setTrendingMovies(response.data.results);
     };
 
@@ -91,7 +109,11 @@ function HomePage() {
                         </div>
                     </div>
                 </div>
-
+                <div className="home__header-trailers">
+                    {headerMovieTrailers.map((key) => (
+                        <Trailer videoId={key} />
+                    ))}
+                </div>
                 <div className="home__header-vignette top"></div>
                 <div className="home__header-vignette bottom"></div>
                 <img src={`${bgOriginal}${headerMovie.backdrop_path}`} alt="" />
@@ -99,11 +121,11 @@ function HomePage() {
             <div className="home__content">
                 <div className="home__content-trending">
                     <h1>Trending</h1>
-                    <MovieList movieList={trendingMovies} />
+                    <MovieList movieList={trendingMovies} contentType="both" />
                 </div>
                 <div className="home__content-popular">
-                    <h1>Popular</h1>
-                    <MovieList movieList={popularMovies} />
+                    <h1>Popular Movies</h1>
+                    <MovieList movieList={popularMovies} contentType="movie" />
                 </div>
             </div>
         </div>
