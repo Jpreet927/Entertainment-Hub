@@ -1,0 +1,25 @@
+.arrow__container {
+  width: 45px;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(4em);
+          backdrop-filter: blur(4em);
+  border-radius: 50%;
+  -webkit-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+
+.arrow__container:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+/*# sourceMappingURL=ArrowButton.css.map */

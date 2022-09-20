@@ -5,8 +5,11 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 4em 12em;
-  background-color: #0c0d0f;
+  background-color: #121317;
 }
 
 .footer__container p {

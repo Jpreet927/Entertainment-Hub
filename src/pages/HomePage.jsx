@@ -25,9 +25,9 @@ function HomePage() {
 
         setPopularMovies(response.data.results);
 
-        const movieData = await getHeaderMovieData(response.data.results[0].id);
+        const movieData = await getHeaderMovieData(response.data.results[1].id);
         const movieTrailers = await getHeaderMovieTrailers(
-            response.data.results[0].id
+            response.data.results[1].id
         );
 
         setHeaderMovie(movieData);

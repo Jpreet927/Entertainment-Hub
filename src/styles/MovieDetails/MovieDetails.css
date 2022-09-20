@@ -166,7 +166,7 @@
 }
 
 .moviedetails__container .moviedetails__trailer {
-  padding: 0em 12em;
+  padding: 4em 12em 4em 12em;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -176,6 +176,5 @@
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1em;
-  margin-top: 6em;
 }
 /*# sourceMappingURL=MovieDetails.css.map */

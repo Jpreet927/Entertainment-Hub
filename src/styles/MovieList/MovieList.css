@@ -1,13 +1,72 @@
 .movielist__container {
   width: 100%;
+  position: relative;
+}
+
+.movielist__container .movielist__buttons {
+  width: 100%;
+  height: 100%;
+  padding: 0em 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 2em;
+  position: absolute;
+  z-index: 3;
+}
+
+.movielist__container .movielist__buttons .movielist__arrow {
+  width: 45px;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(4em);
+          backdrop-filter: blur(4em);
+  border-radius: 50%;
+  -webkit-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+
+.movielist__container .movielist__buttons .movielist__arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.movielist__container .movielist__cards {
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  scroll-behavior: smooth;
+}
+
+.movielist__container .movielist__cards::-webkit-scrollbar {
+  display: none;
+}
+
+.slick-slide div {
+  margin: 0 10px;
+}
+
+.slick-slide .movie__vignette,
+.slick-slide .movie__details {
+  margin: 0px;
+}
+
+.slick-list {
+  margin: 0 -10px;
 }
 /*# sourceMappingURL=MovieList.css.map */

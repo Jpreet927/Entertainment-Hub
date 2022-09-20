@@ -12,9 +12,18 @@ function Footer() {
                 <h3>Jai Preet Singh</h3>
             </div>
             <div className="footer__right">
-                <LinkedInIcon className="footer__icon" />
-                <GitHubIcon className="footer__icon" />
-                <PersonIcon className="footer__icon" />
+                <a
+                    href="https://www.linkedin.com/in/jaipreetsingh/"
+                    target="_blank"
+                >
+                    <LinkedInIcon className="footer__icon" />
+                </a>
+                <a href="https://github.com/Jpreet927" target="_blank">
+                    <GitHubIcon className="footer__icon" />
+                </a>
+                <a href="https://jaipreet.ca/" target="_blank">
+                    <PersonIcon className="footer__icon" />
+                </a>
             </div>
         </div>
     );

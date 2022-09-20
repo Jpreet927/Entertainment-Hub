@@ -1,30 +1,43 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import Slider from "react-slick";
+import { settings } from "../config/slickConfig";
 import Movie from "./Movie";
 import "../styles/MovieList/MovieList.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function MovieList(props) {
-    const [trendingMovies, setTrendingMovies] = useState([]);
     const { movieList } = props;
 
-    const getTrendingMovies = async () => {
-        const response = await axios.get(
-            `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_TMDB_API}`
-        );
-
-        setTrendingMovies(response.data.results);
+    const slideLeft = () => {
+        let container = document.getElementById("movielist");
+        container.scrollLeft = container.scrollLeft - 800;
     };
 
-    useEffect(() => {
-        getTrendingMovies();
-    }, []);
+    const slideRight = () => {
+        let container = document.getElementById("movielist");
+        container.scrollLeft = container.scrollLeft + 800;
+        console.log("working");
+    };
 
     return (
         <div className="movielist__container">
-            {movieList &&
-                movieList.map((movie) => (
-                    <Movie key={movie.id} movie={movie} />
-                ))}
+            {/* <div className="movielist__buttons">
+                <div className="movielist__arrow" onClick={() => slideLeft()}>
+                    <ChevronLeftIcon />
+                </div>
+                <div className="movielist__arrow" onClick={() => slideRight()}>
+                    <ChevronRightIcon />
+                </div>
+            </div> */}
+            <div className="movielist__cards" id="movielist">
+                <Slider {...settings}>
+                    {movieList &&
+                        movieList.map((movie) => (
+                            <Movie key={movie.id} movie={movie} />
+                        ))}
+                </Slider>
+            </div>
         </div>
     );
 }

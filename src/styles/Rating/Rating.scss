@@ -2,10 +2,22 @@
 
 .rating__container {
     display: flex;
-    flex-direction: column;
-    gap: 0.5em;
+    // flex-direction: column;
+    align-items: center;
+    gap: 1.4em;
+
+    .rating__progressbar-container {
+        width: 5rem;
+        height: 5rem;
+
+        .rating__progressbar {
+            font-family: $sansSerifMain;
+            font-weight: 700;
+        }
+    }
 
     p {
         color: $subtext;
+        font-size: 1.2rem;
     }
 }

@@ -3,8 +3,9 @@
 .footer__container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 4em 12em;
-    background-color: $background;
+    background-color: $footerBackground;
 
     p {
         color: $subtext;

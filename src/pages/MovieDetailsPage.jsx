@@ -47,7 +47,7 @@ function MovieDetailsPage(props) {
     };
 
     useEffect(() => {
-        console.log(params);
+        window.scrollTo(0, 0);
         getMovieDetails();
         getMovieCredits();
         getMovieTrailer();
