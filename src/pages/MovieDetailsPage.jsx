@@ -4,7 +4,10 @@ import { useParams, useLocation } from "react-router-dom";
 import { img500, posterUnavailable, bgOriginal } from "../config/defaultImages";
 import Profile from "../components/Profile";
 import GenreTag from "../components/GenreTag";
+import Details from "../components/Details";
 import "../styles/MovieDetails/MovieDetails.css";
+import Trailer from "../components/Trailer";
+import Rating from "../components/Rating";
 
 function MovieDetailsPage(props) {
     const params = useParams();
@@ -16,32 +19,27 @@ function MovieDetailsPage(props) {
     const getMovieDetails = async () => {
         let response;
 
-        if (params.type == "tv") {
-            response = await axios.get(
-                `https://api.themoviedb.org/3/tv/${params.id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
-            );
-        } else {
-            response = await axios.get(
-                `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
-            );
-        }
-
+        response = await axios.get(
+            `https://api.themoviedb.org/3/${params.type}/${params.id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
+        );
+        console.log(response.data);
         setMovieDetails(response.data);
     };
 
     const getMovieCredits = async () => {
         const response = await axios.get(
-            `https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
+            `https://api.themoviedb.org/3/${params.type}/${params.id}/credits?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
         );
-
+        console.log(response.data);
         setMovieCast(response.data.cast.slice(0, 5));
         setMovieCrew(response.data.crew.slice(0, 5));
     };
 
     const getMovieTrailer = async () => {
         const response = await axios.get(
-            `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
+            `https://api.themoviedb.org/3/${params.type}/${params.id}/videos?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
         );
+        console.log(response.data.results);
         setMovieTrailer(
             response.data.results.filter((video) => video.type === "Trailer")[0]
                 ?.key
@@ -75,33 +73,24 @@ function MovieDetailsPage(props) {
                         alt=""
                     />
                     <div className="moviedetails__rating">
-                        <h3>
-                            Rating:{" "}
-                            {Math.round(movieDetails.vote_average * 10) / 10} /
-                            10
-                        </h3>
-                        <p>{movieDetails.vote_count} ratings</p>
+                        <Rating
+                            average={movieDetails.vote_average}
+                            count={movieDetails.vote_count}
+                        />
                     </div>
                 </div>
                 <div className="moviedetails__center">
                     <div className="moviedetails__description">
-                        <h1>{movieDetails.title}</h1>
+                        <h1>{movieDetails.title || movieDetails.name}</h1>
                         <p>{movieDetails.overview}</p>
                     </div>
                     <hr />
                     <div className="moviedetails__info">
                         <div className="moviedetails__stats">
-                            <p>
-                                Release Date:{" "}
-                                <span>{movieDetails.release_date}</span>
-                            </p>
-                            <p>
-                                Runtime:{" "}
-                                <span>{movieDetails.runtime} Minutes</span>
-                            </p>
-                            <p>
-                                Revenue: <span>${movieDetails.revenue}</span>
-                            </p>
+                            <Details
+                                contentDetails={movieDetails}
+                                type={params.type}
+                            />
                         </div>
                         <div className="moviedetails__genres">
                             {movieDetails?.genres?.map((genre) => (
@@ -122,13 +111,7 @@ function MovieDetailsPage(props) {
             </div>
             <div className="moviedetails__trailer">
                 <h1>Trailer</h1>
-                <div className="trailer__container">
-                    <iframe
-                        src={`https://www.youtube.com/embed/${movieTrailer}`}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"
-                        frameborder="0"
-                    ></iframe>
-                </div>
+                <Trailer videoId={movieTrailer} />
             </div>
         </div>
     );

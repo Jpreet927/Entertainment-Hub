@@ -1,0 +1,11 @@
+@import "../../utilities/variables";
+
+.rating__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    p {
+        color: $subtext;
+    }
+}

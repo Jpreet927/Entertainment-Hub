@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { img300, img500, posterUnavailable } from "../config/defaultImages";
 import "../styles/Movie/Movie.css";
 
 function Movie(props) {
     const { movie } = props;
-    const { id, overview, poster_path, release_date, title, name, media_type } =
+    let { id, overview, poster_path, release_date, title, name, media_type } =
         movie;
+
+    if (media_type === undefined) {
+        media_type = "movie";
+    }
 
     return (
         <Link to={`/${media_type}/${id}`} state={{ movie: { movie } }}>

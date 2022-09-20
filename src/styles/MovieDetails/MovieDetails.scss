@@ -133,22 +133,5 @@
         flex-direction: column;
         gap: 1em;
         margin-top: 6em;
-
-        .trailer__container {
-            position: relative;
-            padding-bottom: 56.25%;
-            width: 100%;
-            height: 0;
-
-            iframe {
-                position: absolute;
-                border: none;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 25px;
-            }
-        }
     }
 }

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,kBAAkB,CAAC;EACf,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,GAAG,EAAE,KAAK;CAKb;;AARD,AAKI,kBALc,CAKd,CAAC,CAAC;EACE,KAAK,ECLH,yBAAyB;CDM9B",
+    "sources": [
+        "Rating.scss",
+        "../../utilities/_variables.scss"
+    ],
+    "names": [],
+    "file": "Rating.css"
+}
