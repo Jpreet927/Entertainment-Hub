@@ -14,12 +14,12 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            padding: 8em 10em;
+            padding: 4em 10em;
             z-index: 2;
             display: flex;
-            flex-direction: column;
-            gap: 1.4em;
-            width: 66%;
+            align-items: flex-end;
+            gap: 2em;
+            width: 75%;
 
             h1 {
                 font-size: $fontSizeH1;
@@ -28,6 +28,29 @@
             p {
                 font-size: $fontSizeP;
                 color: $subtext;
+            }
+
+            .home__header-poster {
+                min-width: 300px;
+                height: auto;
+                overflow: hidden;
+                border-radius: 20px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .home__header-heading {
+                display: flex;
+                flex-direction: column;
+                gap: 1.4em;
+
+                .home__header-genres {
+                    display: flex;
+                }
             }
         }
 

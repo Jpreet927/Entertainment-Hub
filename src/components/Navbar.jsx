@@ -5,6 +5,10 @@ import "../styles/Navbar/Navbar.css";
 function Navbar() {
     return (
         <div className="navbar__container">
+            <img
+                src={require("../assets/Logos/1280px-Tmdb.new.logo.svg.png")}
+                alt=""
+            />
             <ul>
                 <Link to="/" style={{ textDecoration: "none" }}>
                     <li>Home</li>
@@ -16,6 +20,7 @@ function Navbar() {
                     <li>Search</li>
                 </Link>
             </ul>
+            <img src={require("../assets/Logos/JpreetLogo.png")} alt="" />
         </div>
     );
 }

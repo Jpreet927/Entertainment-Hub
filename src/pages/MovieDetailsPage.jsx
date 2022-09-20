@@ -14,9 +14,17 @@ function MovieDetailsPage(props) {
     const [movieTrailer, setMovieTrailer] = useState();
 
     const getMovieDetails = async () => {
-        const response = await axios.get(
-            `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
-        );
+        let response;
+
+        if (params.type == "tv") {
+            response = await axios.get(
+                `https://api.themoviedb.org/3/tv/${params.id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
+            );
+        } else {
+            response = await axios.get(
+                `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
+            );
+        }
 
         setMovieDetails(response.data);
     };
@@ -41,6 +49,7 @@ function MovieDetailsPage(props) {
     };
 
     useEffect(() => {
+        console.log(params);
         getMovieDetails();
         getMovieCredits();
         getMovieTrailer();

@@ -5,10 +5,11 @@ import "../styles/Movie/Movie.css";
 
 function Movie(props) {
     const { movie } = props;
-    const { id, overview, poster_path, release_date, title, name } = movie;
+    const { id, overview, poster_path, release_date, title, name, media_type } =
+        movie;
 
     return (
-        <Link to={`/movie/${id}`} state={{ movie: { movie } }}>
+        <Link to={`/${media_type}/${id}`} state={{ movie: { movie } }}>
             <div className="movie__container">
                 <div className="movie__info">
                     <div className="movie__vignette"></div>
