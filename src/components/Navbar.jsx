@@ -66,19 +66,6 @@ function Navbar() {
                         All TV Shows
                     </li>
                 </Link>
-                <Link
-                    to="/search"
-                    style={{ textDecoration: "none" }}
-                    onClick={() => setActiveTab("Search")}
-                >
-                    <li
-                        className={
-                            activeTab === "Search" ? "navbar__active" : ""
-                        }
-                    >
-                        Search
-                    </li>
-                </Link>
             </ul>
             <img src={require("../assets/Logos/JpreetLogo.png")} alt="" />
         </div>

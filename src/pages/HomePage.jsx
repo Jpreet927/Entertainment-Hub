@@ -18,6 +18,7 @@ function HomePage() {
     const [popularMovies, setPopularMovies] = useState([]);
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [popularTv, setPopularTv] = useState([]);
+    const [popularActors, setPopularActors] = useState([]);
 
     const getPopularMovies = async () => {
         const response = await axios.get(
@@ -43,6 +44,14 @@ function HomePage() {
         setPopularTv(response.data.results);
     };
 
+    const getPopularActors = async () => {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US&page=1`
+        );
+
+        setPopularActors(response.data.results);
+    };
+
     const getHeaderMovieData = async (movieID) => {
         const response = await axios.get(
             `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
@@ -66,7 +75,7 @@ function HomePage() {
         const response = await axios.get(
             `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_TMDB_API}`
         );
-        // console.log(response.data.results);
+
         setTrendingMovies(response.data.results);
     };
 
@@ -74,6 +83,7 @@ function HomePage() {
         getPopularMovies();
         getPopularTv();
         getTrendingMovies();
+        getPopularActors();
     }, []);
 
     return (
@@ -140,6 +150,14 @@ function HomePage() {
                 <div className="home__content-popular-tv">
                     <h1>Popular TV Shows</h1>
                     <MovieList movieList={popularTv} contentType="tv" />
+                </div>
+                <div className="home__content-popular-tv">
+                    <h1>Trending Actors</h1>
+                    <div className="home__content-actors">
+                        {popularActors.map((actor) => (
+                            <p>{actor.name}</p>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
