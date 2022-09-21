@@ -17,7 +17,7 @@ function TvShowsPage() {
             `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`
         );
 
-        console.log(response.data);
+        // console.log(response.data);
         setShows(response.data.results);
         setSearchedShows(response.data.results);
         setNumPages(response.data.total_pages);

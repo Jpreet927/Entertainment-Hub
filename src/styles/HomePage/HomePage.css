@@ -136,7 +136,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 2em;
+  gap: 0em;
 }
 
 .home__container .home__content .home__content-section h3 {

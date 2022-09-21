@@ -11,6 +11,17 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 2em 0em;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+
+.actor__container:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  cursor: pointer;
 }
 
 .actor__container .actor__picture {
@@ -27,6 +38,16 @@
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+.actor__container .actor__info {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .actor__container .actor__info p {

@@ -109,7 +109,7 @@
         .home__content-section {
             display: flex;
             flex-direction: column;
-            gap: 2em;
+            gap: 0em;
 
             h3 {
                 font-size: $fontSizeH3;
@@ -117,9 +117,6 @@
 
             .home__content-actors {
                 width: 100%;
-                // display: flex;
-                // align-items: flex-start;
-                // gap: 3em;
             }
         }
     }

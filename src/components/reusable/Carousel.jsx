@@ -43,7 +43,7 @@ function Carousel(props) {
     };
 
     return (
-        <div>
+        <div style={{ padding: "1em 0em" }}>
             <Slider {...settings}>{props.children}</Slider>
         </div>
     );

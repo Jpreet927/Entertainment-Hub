@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 function MovieList(props) {
     const { movieList, contentType } = props;
 
-    useEffect(() => console.log(movieList), [movieList]);
+    // useEffect(() => console.log(movieList), [movieList]);
 
     return (
         <div className="movielist__container">

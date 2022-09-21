@@ -19,7 +19,18 @@ function Details(props) {
                         Production:{" "}
                         <span>
                             {contentDetails?.production_companies?.map(
-                                (company) => company.name + ", "
+                                (company, index) => {
+                                    if (
+                                        index ===
+                                        contentDetails.production_companies
+                                            .length -
+                                            1
+                                    ) {
+                                        return company.name;
+                                    } else {
+                                        return company.name + ", ";
+                                    }
+                                }
                             )}
                         </span>
                     </p>
@@ -38,9 +49,18 @@ function Details(props) {
                     <p>
                         Networks:{" "}
                         <span>
-                            {contentDetails?.networks?.map(
-                                (network) => network.name + ", "
-                            )}
+                            {contentDetails?.networks?.map((network, index) => {
+                                if (
+                                    index ===
+                                    contentDetails.networks.length - 1
+                                ) {
+                                    return network.name;
+                                } else {
+                                    console.log(index);
+                                    console.log(contentDetails.networks.length);
+                                    return network.name + ", ";
+                                }
+                            })}
                         </span>
                     </p>
                 </div>
