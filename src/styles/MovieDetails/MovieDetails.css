@@ -165,7 +165,8 @@
   gap: 0.75em;
 }
 
-.moviedetails__container .moviedetails__trailer {
+.moviedetails__container .moviedetails__trailer,
+.moviedetails__container .moviedetails__related {
   padding: 4em 12em 4em 12em;
   width: 100%;
   display: -webkit-box;

@@ -8,6 +8,7 @@ import Details from "../components/Details";
 import "../styles/MovieDetails/MovieDetails.css";
 import Trailer from "../components/Trailer";
 import Rating from "../components/Rating";
+import MovieList from "../components/MovieList";
 
 function MovieDetailsPage(props) {
     const params = useParams();
@@ -15,6 +16,7 @@ function MovieDetailsPage(props) {
     const [movieCast, setMovieCast] = useState([]);
     const [movieCrew, setMovieCrew] = useState([]);
     const [movieTrailer, setMovieTrailer] = useState();
+    const [movieRelated, setMovieRelated] = useState([]);
 
     const getMovieDetails = async () => {
         let response;
@@ -22,7 +24,7 @@ function MovieDetailsPage(props) {
         response = await axios.get(
             `https://api.themoviedb.org/3/${params.type}/${params.id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
         );
-        console.log(response.data);
+
         setMovieDetails(response.data);
     };
 
@@ -30,7 +32,7 @@ function MovieDetailsPage(props) {
         const response = await axios.get(
             `https://api.themoviedb.org/3/${params.type}/${params.id}/credits?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
         );
-        console.log(response.data);
+
         setMovieCast(response.data.cast.slice(0, 5));
         setMovieCrew(response.data.crew.slice(0, 5));
     };
@@ -39,11 +41,18 @@ function MovieDetailsPage(props) {
         const response = await axios.get(
             `https://api.themoviedb.org/3/${params.type}/${params.id}/videos?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
         );
-        console.log(response.data.results);
+
         setMovieTrailer(
             response.data.results.filter((video) => video.type === "Trailer")[0]
                 ?.key
         );
+    };
+
+    const getMovieRelated = async () => {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/${params.type}/${params.id}/recommendations?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US&page=1`
+        );
+        setMovieRelated(response.data.results);
     };
 
     useEffect(() => {
@@ -51,7 +60,8 @@ function MovieDetailsPage(props) {
         getMovieDetails();
         getMovieCredits();
         getMovieTrailer();
-    }, []);
+        getMovieRelated();
+    }, [params.id]);
 
     return (
         <div className="moviedetails__container">
@@ -112,6 +122,10 @@ function MovieDetailsPage(props) {
             <div className="moviedetails__trailer">
                 <h1>Trailer</h1>
                 <Trailer videoId={movieTrailer} />
+            </div>
+            <div className="moviedetails__related">
+                <h1>Related</h1>
+                <MovieList movieList={movieRelated} contentType={params.type} />
             </div>
         </div>
     );

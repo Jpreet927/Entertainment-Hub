@@ -7,7 +7,7 @@ function Navbar() {
     const [navbarBackground, setNavbarBackground] = useState(false);
 
     const toggleBackground = () => {
-        if (window.scrollY > 720) {
+        if (window.scrollY > 400) {
             setNavbarBackground(true);
         } else {
             setNavbarBackground(false);
@@ -51,6 +51,19 @@ function Navbar() {
                         }
                     >
                         All Movies
+                    </li>
+                </Link>
+                <Link
+                    to="/tv"
+                    style={{ textDecoration: "none" }}
+                    onClick={() => setActiveTab("All TV Shows")}
+                >
+                    <li
+                        className={
+                            activeTab === "All TV Shows" ? "navbar__active" : ""
+                        }
+                    >
+                        All TV Shows
                     </li>
                 </Link>
                 <Link

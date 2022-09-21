@@ -4,7 +4,7 @@ import { img300, img500, posterUnavailable } from "../config/defaultImages";
 import "../styles/Movie/Movie.css";
 
 function Movie(props) {
-    const { movie } = props;
+    const { movie, contentType } = props;
     let { id, overview, poster_path, release_date, title, name, media_type } =
         movie;
 
@@ -13,7 +13,7 @@ function Movie(props) {
     }
 
     return (
-        <Link to={`/${media_type}/${id}`} state={{ movie: { movie } }}>
+        <Link to={`/${contentType}/${id}`} state={{ movie: { movie } }}>
             <div className="movie__container">
                 <div className="movie__info">
                     <div className="movie__vignette"></div>

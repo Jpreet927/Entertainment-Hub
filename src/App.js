@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import MoviesPage from "./pages/MoviesPage";
+import TvShowsPage from "./pages/TvShowsPage";
 import SearchPage from "./pages/SearchPage";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
 
@@ -16,7 +17,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/movies" element={<MoviesPage />} />
-                <Route path="/search" element={<SearchPage />} />
+                <Route path="/tv" element={<TvShowsPage />} />
                 <Route path="/:type/:id" element={<MovieDetailsPage />} />
             </Routes>
             <div className="app__footer">

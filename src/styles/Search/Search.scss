@@ -1,0 +1,32 @@
+@import "../../utilities/variables";
+
+.search__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    width: 80%;
+    background-color: $footerBackground;
+    padding: 0.5em 2em;
+
+    .search__icon {
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+
+    input {
+        width: 100%;
+        padding: 1em;
+        background: none;
+        border: none;
+        font-size: 1em;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

@@ -17,6 +17,7 @@ function HomePage() {
     const [headerMovieTrailers, setHeaderMovieTrailers] = useState([]);
     const [popularMovies, setPopularMovies] = useState([]);
     const [trendingMovies, setTrendingMovies] = useState([]);
+    const [popularTv, setPopularTv] = useState([]);
 
     const getPopularMovies = async () => {
         const response = await axios.get(
@@ -32,6 +33,14 @@ function HomePage() {
 
         setHeaderMovie(movieData);
         setHeaderMovieTrailers(movieTrailers);
+    };
+
+    const getPopularTv = async () => {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US&page=1`
+        );
+
+        setPopularTv(response.data.results);
     };
 
     const getHeaderMovieData = async (movieID) => {
@@ -63,6 +72,7 @@ function HomePage() {
 
     useEffect(() => {
         getPopularMovies();
+        getPopularTv();
         getTrendingMovies();
     }, []);
 
@@ -126,6 +136,10 @@ function HomePage() {
                 <div className="home__content-popular">
                     <h1>Popular Movies</h1>
                     <MovieList movieList={popularMovies} contentType="movie" />
+                </div>
+                <div className="home__content-popular-tv">
+                    <h1>Popular TV Shows</h1>
+                    <MovieList movieList={popularTv} contentType="tv" />
                 </div>
             </div>
         </div>
