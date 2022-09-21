@@ -5,6 +5,12 @@ import "../styles/Search/Search.css";
 function Search(props) {
     const { setSearchParams, executeSearch } = props;
 
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            executeSearch();
+        }
+    };
+
     return (
         <div className="search__container">
             <SearchIcon
@@ -17,6 +23,7 @@ function Search(props) {
                 onChange={(e) => {
                     setSearchParams(e.target.value);
                 }}
+                onKeyDown={(e) => handleKeyDown(e)}
             />
         </div>
     );

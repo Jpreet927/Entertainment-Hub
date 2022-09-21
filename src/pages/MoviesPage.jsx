@@ -30,10 +30,16 @@ function MoviesPage() {
         setSearchedMovies(response.data.results);
     };
 
+    // ensure search query is persisted after pagination
     useEffect(() => {
-        getAllMovies();
+        if (searchParams === "") {
+            getAllMovies();
+        } else {
+            getSearchedMovies();
+        }
     }, [page]);
 
+    // automatically show all content if user deletes their search query
     useEffect(() => {
         if (searchParams === "") {
             getAllMovies();
