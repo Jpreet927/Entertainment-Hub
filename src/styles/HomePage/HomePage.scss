@@ -106,14 +106,20 @@
         flex-direction: column;
         gap: 6em;
 
-        .home__content-trending,
-        .home__content-popular {
+        .home__content-section {
             display: flex;
             flex-direction: column;
             gap: 2em;
 
             h3 {
                 font-size: $fontSizeH3;
+            }
+
+            .home__content-actors {
+                width: 100%;
+                // display: flex;
+                // align-items: flex-start;
+                // gap: 3em;
             }
         }
     }

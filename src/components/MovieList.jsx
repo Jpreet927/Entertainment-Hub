@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
+import Carousel from "./reusable/Carousel";
 import { settings } from "../config/slickConfig";
 import Movie from "./Movie";
 import "../styles/MovieList/MovieList.css";
@@ -14,7 +15,7 @@ function MovieList(props) {
     return (
         <div className="movielist__container">
             <div className="movielist__cards" id="movielist">
-                <Slider {...settings}>
+                <Carousel displayItems={4} scrollItems={4}>
                     {movieList &&
                         movieList.map((movie) => (
                             <Movie
@@ -23,7 +24,7 @@ function MovieList(props) {
                                 contentType={movie.media_type || contentType}
                             />
                         ))}
-                </Slider>
+                </Carousel>
             </div>
         </div>
     );

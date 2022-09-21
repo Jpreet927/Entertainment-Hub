@@ -104,7 +104,7 @@ function MovieDetailsPage(props) {
                         </div>
                         <div className="moviedetails__genres">
                             {movieDetails?.genres?.map((genre) => (
-                                <GenreTag genre={genre.name} />
+                                <GenreTag key={genre.id} genre={genre.name} />
                             ))}
                         </div>
                     </div>

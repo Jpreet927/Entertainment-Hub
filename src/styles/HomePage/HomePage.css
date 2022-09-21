@@ -128,8 +128,7 @@
   gap: 6em;
 }
 
-.home__container .home__content .home__content-trending,
-.home__container .home__content .home__content-popular {
+.home__container .home__content .home__content-section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,8 +139,11 @@
   gap: 2em;
 }
 
-.home__container .home__content .home__content-trending h3,
-.home__container .home__content .home__content-popular h3 {
+.home__container .home__content .home__content-section h3 {
   font-size: 1.6rem;
+}
+
+.home__container .home__content .home__content-section .home__content-actors {
+  width: 100%;
 }
 /*# sourceMappingURL=HomePage.css.map */

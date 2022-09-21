@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Movie from "../components/Movie";
-import CustomPagination from "../components/Pagination";
+import CustomPagination from "../components/reusable/Pagination";
 import Search from "../components/Search";
 import "../styles/MoviesPage/MoviesPage.css";
 
