@@ -5,6 +5,7 @@ export const bg1200 = "https://image.tmdb.org/t/p/w1200";
 export const bgOriginal = "https://image.tmdb.org/t/p/original";
 export const avatar45 = "https://image.tmdb.org/t/p/w45";
 export const avatar185 = "https://image.tmdb.org/t/p/w185";
+export const avatar300 = "https://image.tmdb.org/t/p/w300";
 export const logo92 = "https://image.tmdb.org/t/p/w92";
 
 export const posterUnavailable =
