@@ -33,6 +33,7 @@
       -ms-flex-align: end;
           align-items: flex-end;
   gap: 2em;
+  width: 66%;
 }
 
 .home__container .home__header .home__header-content .home__header-details h1 {
@@ -88,6 +89,7 @@
       -ms-flex-align: end;
           align-items: flex-end;
   gap: 2em;
+  width: 33%;
 }
 
 .home__container .home__header img {
