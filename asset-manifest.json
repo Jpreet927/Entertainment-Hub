@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Entertainment-Hub/static/css/main.cc7e0e6f.css",
+    "main.js": "/Entertainment-Hub/static/js/main.b31980c8.js",
+    "static/media/1280px-Tmdb.new.logo.svg.png": "/Entertainment-Hub/static/media/1280px-Tmdb.new.logo.svg.0052344d9dbe9a98d95f.png",
+    "static/media/JpreetLogo.png": "/Entertainment-Hub/static/media/JpreetLogo.7bcc506c6423d5b85d5e.png",
+    "static/media/slick.svg": "/Entertainment-Hub/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/Entertainment-Hub/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/Entertainment-Hub/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/Entertainment-Hub/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/Entertainment-Hub/index.html",
+    "main.cc7e0e6f.css.map": "/Entertainment-Hub/static/css/main.cc7e0e6f.css.map",
+    "main.b31980c8.js.map": "/Entertainment-Hub/static/js/main.b31980c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc7e0e6f.css",
+    "static/js/main.b31980c8.js"
+  ]
+}
