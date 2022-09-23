@@ -56,8 +56,6 @@ function Details(props) {
                                 ) {
                                     return network.name;
                                 } else {
-                                    console.log(index);
-                                    console.log(contentDetails.networks.length);
                                     return network.name + ", ";
                                 }
                             })}

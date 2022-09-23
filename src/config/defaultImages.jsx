@@ -1,3 +1,16 @@
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LiveTvIcon from "@mui/icons-material/LiveTv";
+
+// Social media data
+export const socialMedia = {
+    twitter_id: { icon: <TwitterIcon />, link: "http://twitter.com/" },
+    instagram_id: { icon: <InstagramIcon />, link: "http://instagram.com/" },
+    facebook_id: { icon: <FacebookIcon />, link: "http://facebook.com/" },
+    imdb_id: { icon: <LiveTvIcon />, link: "https://www.imdb.com/name/" },
+};
+
 // TMDB Poster URL Prefixes
 export const img300 = "https://image.tmdb.org/t/p/w300";
 export const img500 = "https://image.tmdb.org/t/p/w500";

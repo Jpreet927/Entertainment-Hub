@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { bgOriginal, avatar185, avatar300 } from "../config/defaultImages";
+import {
+    bgOriginal,
+    avatar185,
+    avatar300,
+    socialMedia,
+} from "../config/defaultImages";
 import MovieList from "../components/MovieList";
 import "../styles/ActorDetails/ActorDetails.css";
 
@@ -9,12 +14,14 @@ function ActorDetailsPage() {
     const params = useParams();
     const [actorDetails, setActorDetails] = useState({});
     const [actorCredits, setActorCredits] = useState([]);
+    const [actorSocials, setActorSocials] = useState({});
+    const [actorSocialKeys, setActorSocialKeys] = useState([]);
 
     const getActorDetails = async () => {
         let response = await axios.get(
             `https://api.themoviedb.org/3/person/${params.id}?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
         );
-        console.log(response.data);
+
         setActorDetails(response.data);
     };
 
@@ -26,9 +33,25 @@ function ActorDetailsPage() {
         setActorCredits(response.data);
     };
 
+    const getActorSocials = async () => {
+        let response = await axios.get(
+            `https://api.themoviedb.org/3/person/${params.id}/external_ids?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
+        );
+
+        setActorSocials(response.data);
+        setActorSocialKeys(
+            Object.keys(response.data).filter((item) => {
+                if (response.data[item] !== null && item !== "id") {
+                    return item;
+                }
+            })
+        );
+    };
+
     useEffect(() => {
         getActorDetails();
         getActorCredits();
+        getActorSocials();
     }, []);
 
     return (
@@ -49,6 +72,17 @@ function ActorDetailsPage() {
                 <div className="actor__biography">
                     <div>
                         <p>{actorDetails.biography}</p>
+                        <div className="actor__bio-socials">
+                            {actorSocialKeys
+                                .filter((item) =>
+                                    socialMedia.hasOwnProperty(item)
+                                )
+                                .map((item) => {
+                                    <div>
+                                        <p>yerr</p>
+                                    </div>;
+                                })}
+                        </div>
                     </div>
                     <div className="actor__biography-details">
                         <p>

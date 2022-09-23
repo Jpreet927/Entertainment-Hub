@@ -12,8 +12,6 @@ function MovieList(props) {
     const { movieList, contentType } = props;
     const settings = useSlickSettings({ itemsToDisplay: 4, itemsToScroll: 4 });
 
-    // useEffect(() => console.log(movieList), [movieList]);
-
     return (
         <div className="movielist__container">
             <div className="movielist__cards" id="movielist">
