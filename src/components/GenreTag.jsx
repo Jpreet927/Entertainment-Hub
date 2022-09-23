@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles/GenreTag/GenreTag.css";
 
 function GenreTag(props) {
-    const { genre } = props;
+    const { id, genre, contentType } = props;
 
     return (
-        <div className="genre__container">
-            <p>{genre}</p>
-        </div>
+        <Link
+            to={`/${contentType}/genre/${id}`}
+            style={{ textDecoration: "none" }}
+        >
+            <div className="genre__container">
+                <p>{genre}</p>
+            </div>
+        </Link>
     );
 }
 

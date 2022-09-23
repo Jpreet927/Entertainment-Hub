@@ -9,6 +9,15 @@
     align-items: center;
     justify-content: center;
     gap: 3em;
+    min-height: 100vh;
+
+    .movies__header {
+        width: 100%;
+    }
+
+    .movies__genres {
+        width: 80%;
+    }
 
     .movies__list {
         width: 100%;
@@ -16,6 +25,7 @@
         flex-wrap: wrap;
         // justify-content: space-between;
         align-items: center;
+        justify-content: center;
         gap: 2em;
     }
 }

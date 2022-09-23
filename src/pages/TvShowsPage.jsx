@@ -3,12 +3,14 @@ import axios from "axios";
 import Movie from "../components/Movie";
 import CustomPagination from "../components/reusable/Pagination";
 import Search from "../components/Search";
+import GenreList from "../components/GenreList";
 import "../styles/MoviesPage/MoviesPage.css";
 
 function TvShowsPage() {
     const [page, setPage] = useState(1);
     const [shows, setShows] = useState([]);
     const [searchedShows, setSearchedShows] = useState([]);
+    const [genres, setGenres] = useState([]);
     const [numPages, setNumPages] = useState();
     const [searchParams, setSearchParams] = useState("");
 
@@ -31,6 +33,18 @@ function TvShowsPage() {
         setSearchedShows(response.data.results);
     };
 
+    const getGenres = async () => {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
+        );
+
+        setGenres(response.data.genres);
+    };
+
+    useEffect(() => {
+        getGenres();
+    }, []);
+
     useEffect(() => {
         getAllShows();
     }, [page]);
@@ -43,10 +57,14 @@ function TvShowsPage() {
 
     return (
         <div className="movies__container">
+            <h1>All TV Shows</h1>
             <Search
                 setSearchParams={setSearchParams}
                 executeSearch={getSearchedShows}
             />
+            <div className="movies__genres">
+                <GenreList contentType="tv" genres={genres} />
+            </div>
             <div className="movies__list">
                 {searchedShows &&
                     searchedShows.map((show) => (

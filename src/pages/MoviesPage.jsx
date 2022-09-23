@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react";
 import Movie from "../components/Movie";
 import CustomPagination from "../components/reusable/Pagination";
 import Search from "../components/Search";
+import GenreList from "../components/GenreList";
 import "../styles/MoviesPage/MoviesPage.css";
 
 function MoviesPage() {
     const [page, setPage] = useState(1);
     const [movies, setMovies] = useState([]);
     const [searchedMovies, setSearchedMovies] = useState([]);
+    const [genres, setGenres] = useState([]);
     const [numPages, setNumPages] = useState();
     const [searchParams, setSearchParams] = useState("");
 
@@ -30,6 +32,18 @@ function MoviesPage() {
         setSearchedMovies(response.data.results);
     };
 
+    const getGenres = async () => {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API}&language=en-US`
+        );
+
+        setGenres(response.data.genres);
+    };
+
+    useEffect(() => {
+        getGenres();
+    }, []);
+
     // ensure search query is persisted after pagination
     useEffect(() => {
         if (searchParams === "") {
@@ -48,10 +62,14 @@ function MoviesPage() {
 
     return (
         <div className="movies__container">
+            <h1>All Movies</h1>
             <Search
                 setSearchParams={setSearchParams}
                 executeSearch={getSearchedMovies}
             />
+            <div className="movies__genres">
+                <GenreList contentType="movie" genres={genres} />
+            </div>
             <div className="movies__list">
                 {searchedMovies &&
                     searchedMovies.map((movie) => (
