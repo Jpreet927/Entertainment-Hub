@@ -36,6 +36,17 @@
         -webkit-text-fill-color: transparent;
         font-weight: 700;
     }
+
+    @media only screen and (max-width: 750px) {
+        padding: 3em;
+        img {
+            display: none;
+        }
+
+        ul {
+            width: 100%;
+        }
+    }
 }
 
 .navbar__background {

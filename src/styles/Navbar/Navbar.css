@@ -51,6 +51,18 @@
   font-weight: 700;
 }
 
+@media only screen and (max-width: 750px) {
+  .navbar__container {
+    padding: 3em;
+  }
+  .navbar__container img {
+    display: none;
+  }
+  .navbar__container ul {
+    width: 100%;
+  }
+}
+
 .navbar__background {
   background-color: rgba(0, 0, 0, 0.6);
   -webkit-backdrop-filter: blur(2em);

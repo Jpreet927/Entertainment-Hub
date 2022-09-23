@@ -20,4 +20,24 @@
             cursor: pointer;
         }
     }
+
+    @media only screen and (max-width: 800px) {
+        padding: 4em 6em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        padding: 4em;
+
+        p {
+            font-size: 0.8em;
+        }
+
+        h3 {
+            font-size: 1.2em;
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        padding: 2em;
+    }
 }

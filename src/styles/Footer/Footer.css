@@ -27,4 +27,28 @@
   color: rgba(255, 255, 255, 0.75);
   cursor: pointer;
 }
+
+@media only screen and (max-width: 800px) {
+  .footer__container {
+    padding: 4em 6em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .footer__container {
+    padding: 4em;
+  }
+  .footer__container p {
+    font-size: 0.8em;
+  }
+  .footer__container h3 {
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .footer__container {
+    padding: 2em;
+  }
+}
 /*# sourceMappingURL=Footer.css.map */

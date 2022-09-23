@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick";
-import { settings } from "../config/slickConfig";
+import useSlickSettings from "../hooks/useSlickSettings";
 import Carousel from "../components/reusable/Carousel";
 import MovieList from "../components/MovieList";
 import {
@@ -25,6 +25,7 @@ function HomePage() {
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [popularTv, setPopularTv] = useState([]);
     const [popularActors, setPopularActors] = useState([]);
+    const settings = useSlickSettings({ itemsToDisplay: 6, itemsToScroll: 6 });
 
     const getPopularMovies = async () => {
         const response = await axios.get(
@@ -95,50 +96,56 @@ function HomePage() {
     return (
         <div className="home__container">
             <div className="home__header">
-                <div className="home__header-details">
-                    <div className="home__header-poster">
-                        <img
-                            src={
-                                `${img500}${headerMovie.poster_path}` ||
-                                posterUnavailable
-                            }
-                            alt=""
-                        />
+                <div className="home__header-content">
+                    <div className="home__header-details">
+                        <div className="home__header-poster">
+                            <img
+                                src={
+                                    `${img500}${headerMovie.poster_path}` ||
+                                    posterUnavailable
+                                }
+                                alt=""
+                            />
+                        </div>
+                        <div className="home__header-heading">
+                            <h1>{headerMovie.title}</h1>
+                            <div className="home__header-rating">
+                                <p>
+                                    Rating:{" "}
+                                    <span>
+                                        {Math.round(
+                                            headerMovie.vote_average * 10
+                                        ) / 10}{" "}
+                                        / 10
+                                    </span>
+                                </p>
+                            </div>
+                            <p>{headerMovie.overview}</p>
+                            <div className="headerMovie-stats">
+                                <p>
+                                    Release Date:{" "}
+                                    <span>{headerMovie.release_date}</span>
+                                </p>
+                                <p>
+                                    Runtime:{" "}
+                                    <span>{headerMovie.runtime} Minutes</span>
+                                </p>
+                            </div>
+                            <div className="home__header-genres">
+                                {headerMovie?.genres?.map((genre) => (
+                                    <GenreTag
+                                        key={genre.id}
+                                        genre={genre.name}
+                                    />
+                                ))}
+                            </div>
+                        </div>
                     </div>
-                    <div className="home__header-heading">
-                        <h1>{headerMovie.title}</h1>
-                        <div className="home__header-rating">
-                            <p>
-                                Rating:{" "}
-                                <span>
-                                    {Math.round(headerMovie.vote_average * 10) /
-                                        10}{" "}
-                                    / 10
-                                </span>
-                            </p>
-                        </div>
-                        <p>{headerMovie.overview}</p>
-                        <div className="headerMovie-stats">
-                            <p>
-                                Release Date:{" "}
-                                <span>{headerMovie.release_date}</span>
-                            </p>
-                            <p>
-                                Runtime:{" "}
-                                <span>{headerMovie.runtime} Minutes</span>
-                            </p>
-                        </div>
-                        <div className="home__header-genres">
-                            {headerMovie?.genres?.map((genre) => (
-                                <GenreTag key={genre.id} genre={genre.name} />
-                            ))}
-                        </div>
+                    <div className="home__header-trailers">
+                        {headerMovieTrailers.map((key) => (
+                            <Trailer key={key} videoId={key} />
+                        ))}
                     </div>
-                </div>
-                <div className="home__header-trailers">
-                    {headerMovieTrailers.map((key) => (
-                        <Trailer key={key} videoId={key} />
-                    ))}
                 </div>
                 <div className="home__header-vignette top"></div>
                 <div className="home__header-vignette bottom"></div>
@@ -160,11 +167,11 @@ function HomePage() {
                 <div className="home__content-section">
                     <h1>Trending Actors</h1>
                     <div className="home__content-actors">
-                        <Carousel displayItems={8} scrollItems={8}>
+                        <Slider {...settings}>
                             {popularActors.map((actor) => (
                                 <Avatar key={actor.id} actor={actor} />
                             ))}
-                        </Carousel>
+                        </Slider>
                     </div>
                 </div>
             </div>

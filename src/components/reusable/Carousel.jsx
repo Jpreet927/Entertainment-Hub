@@ -16,27 +16,27 @@ function Carousel(props) {
         prevArrow: <ArrowButton direction={"left"} />,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1500,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: displayItems > 1 ? displayItems - 1 : 1,
+                    slidesToScroll: scrollItems > 1 ? scrollItems - 1 : 1,
                     infinite: true,
                     dots: true,
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 1200,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
+                    slidesToShow: displayItems > 2 ? displayItems - 2 : 1,
+                    slidesToScroll: scrollItems > 2 ? scrollItems - 2 : 1,
                     initialSlide: 2,
                 },
             },
             {
-                breakpoint: 480,
+                breakpoint: 800,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+                    slidesToShow: displayItems > 3 ? displayItems - 3 : 1,
+                    slidesToScroll: scrollItems > 3 ? scrollItems - 3 : 1,
                 },
             },
         ],

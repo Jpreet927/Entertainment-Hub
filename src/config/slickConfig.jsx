@@ -10,7 +10,7 @@ export const settings = {
     prevArrow: <ArrowButton direction={"left"} />,
     responsive: [
         {
-            breakpoint: 1024,
+            breakpoint: 1669,
             settings: {
                 slidesToShow: 3,
                 slidesToScroll: 3,

@@ -124,11 +124,11 @@ function MovieDetailsPage(props) {
                     </div>
                 </div>
             </div>
-            <div className="moviedetails__trailer">
+            <div className="moviedetails__section">
                 <h1>Trailer</h1>
                 <Trailer videoId={movieTrailer} />
             </div>
-            <div className="moviedetails__related">
+            <div className="moviedetails__section">
                 <h1>Related</h1>
                 <MovieList movieList={movieRelated} contentType={params.type} />
             </div>

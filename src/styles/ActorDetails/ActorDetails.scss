@@ -2,7 +2,7 @@
 
 .actor__background {
     background-color: $background;
-    padding: 12em 12em;
+    padding: 12em;
     display: flex;
     flex-direction: column;
     gap: 4em;
@@ -53,5 +53,29 @@
                 width: 34%;
             }
         }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        padding: 12em 4em;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .actor__info {
+            .actor__biography {
+                flex-direction: column;
+
+                div {
+                    width: 100%;
+                }
+
+                .actor__biography-details {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        padding: 12em 2em;
     }
 }

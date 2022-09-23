@@ -126,12 +126,49 @@
         }
     }
 
-    .moviedetails__trailer,
-    .moviedetails__related {
+    .moviedetails__section {
         padding: 4em 12em 4em 12em;
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 1em;
+    }
+
+    @media only screen and (max-width: 1400px) {
+        .moviedetails__details {
+            padding: 0em 4em;
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .moviedetails__details {
+            flex-direction: column;
+            align-items: center;
+            gap: 0em;
+            margin-top: -600px;
+
+            .moviedetails__left {
+                width: 50%;
+                align-items: center;
+            }
+
+            .moviedetails__center {
+                width: 100%;
+            }
+
+            .moviedetails__right {
+                width: 100%;
+
+                .moviedetails__cast-crew {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+        }
+
+        .moviedetails__section {
+            padding: 4em;
+        }
     }
 }

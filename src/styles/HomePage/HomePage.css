@@ -9,12 +9,23 @@
   position: relative;
 }
 
-.home__container .home__header .home__header-details {
+.home__container .home__header .home__header-content {
   position: absolute;
   left: 0;
   bottom: 0;
-  padding: 2em 10em;
   z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 2em 10em;
+}
+
+.home__container .home__header .home__header-content .home__header-details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,33 +33,32 @@
       -ms-flex-align: end;
           align-items: flex-end;
   gap: 2em;
-  width: 75%;
 }
 
-.home__container .home__header .home__header-details h1 {
+.home__container .home__header .home__header-content .home__header-details h1 {
   font-size: 3rem;
 }
 
-.home__container .home__header .home__header-details p {
+.home__container .home__header .home__header-content .home__header-details p {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.75);
 }
 
-.home__container .home__header .home__header-details .home__header-poster {
+.home__container .home__header .home__header-content .home__header-details .home__header-poster {
   min-width: 300px;
   width: 350px;
   overflow: hidden;
   border-radius: 20px;
 }
 
-.home__container .home__header .home__header-details .home__header-poster img {
+.home__container .home__header .home__header-content .home__header-details .home__header-poster img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.home__container .home__header .home__header-details .home__header-heading {
+.home__container .home__header .home__header-content .home__header-details .home__header-heading {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,19 +69,14 @@
   gap: 1.4em;
 }
 
-.home__container .home__header .home__header-details .home__header-heading .home__header-genres {
+.home__container .home__header .home__header-content .home__header-details .home__header-heading .home__header-genres {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 1em;
 }
 
-.home__container .home__header .home__header-trailers {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  padding: 2em 4em;
-  z-index: 2;
+.home__container .home__header .home__header-content .home__header-trailers {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,7 +88,6 @@
       -ms-flex-align: end;
           align-items: flex-end;
   gap: 2em;
-  width: 33%;
 }
 
 .home__container .home__header img {
@@ -145,5 +149,69 @@
 
 .home__container .home__content .home__content-section .home__content-actors {
   width: 100%;
+}
+
+@media only screen and (max-width: 1600px) {
+  .home__container .home__content {
+    padding: 6em 6em;
+  }
+  .home__container .home__header .home__header-content {
+    padding: 2em 6em;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .home__container .home__header .home__header-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 2em;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .home__container .home__header .home__header-content .home__header-details {
+    height: 75%;
+  }
+  .home__container .home__header .home__header-content .home__header-details .home__header-poster {
+    min-width: 200px;
+    width: 250px;
+  }
+  .home__container .home__header .home__header-content .home__header-trailers {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .home__container .home__header .home__header-content {
+    display: block;
+    margin-bottom: 3em;
+  }
+  .home__container .home__header .home__header-content .home__header-details {
+    height: 100%;
+  }
+  .home__container .home__header .home__header-content .home__header-details .home__header-poster {
+    display: none;
+  }
+  .home__container .home__header .home__header-content .home__header-trailers {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .home__container .home__content {
+    padding: 6em 2em;
+  }
+  .home__container .home__header .home__header-content {
+    padding: 2em 2em;
+  }
 }
 /*# sourceMappingURL=HomePage.css.map */

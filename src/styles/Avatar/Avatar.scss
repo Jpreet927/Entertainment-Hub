@@ -1,6 +1,6 @@
 .actor__container {
-    width: 150px;
     display: flex;
+
     flex-direction: column;
     gap: 1em;
     align-items: center;
@@ -13,8 +13,8 @@
     }
 
     .actor__picture {
-        width: 150px;
-        height: 150px;
+        width: 175px;
+        height: 175px;
         overflow: hidden;
         border-radius: 50%;
 
